@@ -15,15 +15,7 @@ class Agenda {
             contenu[date][heure] = description;
         }
 
-        void show_events() {
-            std::map<Date, std::map<Heure, std::string>>::iterator it;
-            for (it = contenu.begin(); it != contenu.end(); ++it) {
-                std::map<Heure,std::string>::iterator subit;
-                for(subit = contenu.begin(); it != contenu.end; ++subit) {
-                    cout << it->first << "->" << it->second << "->" << subit->first << "->" << subit->second << std::endl;
-                }
-            }
-        }
+
 }
 
 int main() {
