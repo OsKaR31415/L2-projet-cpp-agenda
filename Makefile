@@ -1,15 +1,18 @@
 
-all: clean heure agenda
+all: clean heure agenda run
 
 heure:
-	g++ heure.cpp -o heure
+	g++ heure.cpp -o heure.out
 
 date:
-	g++ date.cpp -o date
+	g++ date.cpp -o date.out
 
 agenda:
-	g++ agenda.cpp -o agenda
+	g++ agenda.cpp -o agenda.out
 
 clean:
-	rm -f heure date agenda
+	rm -f heure.out date.out agenda.out
+
+run:
+	./agenda.out
 
