@@ -70,16 +70,16 @@ class Heure {
         }
 };
 
-int main() {
-    /* TESTS */
-    /* Heure matin = Heure(8, 30); */
-    /* std::cout << matin.to_string() << std::endl; */
-    /* matin.set_mm(70); */
-    /* matin.set_mm(-10); */
-    /* matin.set_hh(30); */
-    /* matin.set_hh(-10); */
-    /* std::cout << matin.to_string() << std::endl; */
-    return 0;
-}
+/* int main() { */
+/*     /1* TESTS *1/ */
+/*     /1* Heure matin = Heure(8, 30); *1/ */
+/*     /1* std::cout << matin.to_string() << std::endl; *1/ */
+/*     /1* matin.set_mm(70); *1/ */
+/*     /1* matin.set_mm(-10); *1/ */
+/*     /1* matin.set_hh(30); *1/ */
+/*     /1* matin.set_hh(-10); *1/ */
+/*     /1* std::cout << matin.to_string() << std::endl; *1/ */
+/*     return 0; */
+/* } */
 
 
