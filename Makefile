@@ -1,8 +1,11 @@
 
-all: clean compile run clean
+all: clean compile run remove_header_binaries
 
-clean:
-	rm -f heure.hpp.ghc date.hpp.ghc agenda.out
+clean: remove_header_binaries
+	rm -f agenda.out
+
+remove_header_binaries:
+	rm -f heure.hpp.ghc date.hpp.ghc
 
 compile: heure date agenda
 
