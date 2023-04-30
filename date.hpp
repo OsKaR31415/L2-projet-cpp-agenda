@@ -59,19 +59,19 @@ class Date {
 
 
 
-        bool const operator== (const Date& other) {
+        bool operator== (const Date& other) const {
             return (day   == other.day   &&
                     month == other.month &&
                     year  == other.year  );
         }
 
-        bool const operator!= (const Date& other) {
+        bool operator!= (const Date& other) const {
             return (day   != other.day   ||
                     month != other.month ||
                     year  != other.year  );
         }
 
-        bool const operator< (const Date& other) {
+        bool operator< (const Date& other) const {
             if (year < other.year) {
                 return true;
             }
@@ -81,7 +81,7 @@ class Date {
             return day < other.day;
         }
 
-        bool const operator> (const Date& other) {
+        bool operator> (const Date& other) const {
             if (year > other.year) {
                 return true;
             }
