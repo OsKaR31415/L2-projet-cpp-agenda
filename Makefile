@@ -1,3 +1,4 @@
+COMPILER=g++
 
 all: clean compile run remove_header_binaries
 
@@ -13,11 +14,11 @@ run:
 	./agenda.out
 
 heure:
-	g++ heure.hpp
+	$(COMPILER) heure.hpp
 
 date:
-	g++ date.hpp
+	$(COMPILER) date.hpp
 
 agenda:
-	g++ agenda.cpp -o agenda.out
+	$(COMPILER) agenda.cpp -o agenda.out
 
