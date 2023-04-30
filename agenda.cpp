@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include "heure.cpp"
-#include "date.cpp"
+#include "heure.h"
+#include "date.h"
 
 class Agenda {
     private:
@@ -16,9 +16,9 @@ class Agenda {
             contenu[date][heure] = description;
         }
 
-        std::map<Heure, std::string> get_day(Date date) {
-            return contenu[date];
-        }
+        /* std::map<Heure, std::string> get_day(Date date) { */
+        /*     return contenu[date]; */
+        /* } */
 
         /* void show_day(Date date) { */
         /*     std::map<Heure, std::string> day = contenu[date]; */
