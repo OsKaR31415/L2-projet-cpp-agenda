@@ -81,6 +81,17 @@ bool const operator< (Date& d1, Date& d2) {
     return d1.get_day() < d2.get_day();
 }
 
+bool const operator> (Date& d1, Date& d2) {
+    if (d1.get_year() > d2.get_year()) {
+        return true;
+    }
+    if (d1.get_month() > d2.get_month()) {
+        return true;
+    }
+    return d1.get_day() > d2.get_day();
+}
+
+
 
 
 /* int main() { */
