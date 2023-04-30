@@ -72,19 +72,19 @@ class Heure {
             return std::to_string(hh) + ":" + std::to_string(mm);
         }
 
-    bool const operator== (Heure& other) {
+    bool operator== (Heure& other) {
         return (hh == other.get_hh()) && (mm == other.get_mm());
     }
 
-    bool const operator!= (Heure& other) {
+    bool operator!= (Heure& other) {
         return (hh != other.get_hh()) || (mm != other.get_mm());
     }
 
-    bool const operator< (Heure& other) {
+    bool const operator< (const Heure& other) {
         return (hh < other.get_hh()) || (mm < other.get_mm());
     }
 
-    bool const operator> (Heure& other) {
+    bool operator> (Heure& other) {
         return (hh > other.get_hh()) || (mm > other.get_hh());
     }
 
