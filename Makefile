@@ -1,5 +1,5 @@
 
-all: clean compile run
+all: clean compile run clean
 
 clean:
 	rm -f heure.hpp.ghc date.hpp.ghc agenda.out
