@@ -68,8 +68,22 @@ class Heure {
             return 0;
         }
 
-        std::string to_string() {
-            return std::to_string(hh) + ":" + std::to_string(mm);
+        /* convert a time into a string representation of itself
+         * Important : the strings are flushed right, so times before 12 are
+         * preceded by a space to align the "h" in every time.
+         * Examples:
+         *     Heure(13, 7) gives "13h07"
+         *     Heure(9, 0) gives " 9h00" */
+        std::string to_string() const {
+            std::string mm_str = std::to_string(mm);
+            if (mm < 10) {
+                mm_str = "0" + mm_str;
+            }
+            std::string hh_str = std::to_string(hh);
+            if (hh < 10) {
+                hh_str = " " + hh_str;
+            }
+            return hh_str + "h" + mm_str;
         }
 
     bool operator== (const Heure& other) const {
