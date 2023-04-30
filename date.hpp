@@ -59,36 +59,36 @@ class Date {
 
 
 
-        bool operator== (Date& other) {
-            return (day   == other.get_day()   &&
-                    month == other.get_month() &&
-                    year  == other.get_year()  );
+        bool const operator== (const Date& other) {
+            return (day   == other.day   &&
+                    month == other.month &&
+                    year  == other.year  );
         }
 
-        bool operator!= (Date& other) {
-            return (day   != other.get_day()   ||
-                    month != other.get_month() ||
-                    year  != other.get_year()  );
+        bool const operator!= (const Date& other) {
+            return (day   != other.day   ||
+                    month != other.month ||
+                    year  != other.year  );
         }
 
-        bool operator< (Date& other) {
-            if (year < other.get_year()) {
+        bool const operator< (const Date& other) {
+            if (year < other.year) {
                 return true;
             }
-            if (month < other.get_month()) {
+            if (month < other.month) {
                 return true;
             }
-            return day < other.get_day();
+            return day < other.day;
         }
 
-        bool operator> (Date& other) {
-            if (year > other.get_year()) {
+        bool const operator> (const Date& other) {
+            if (year > other.year) {
                 return true;
             }
-            if (month > other.get_month()) {
+            if (month > other.month) {
                 return true;
             }
-            return day > other.get_day();
+            return day > other.day;
         }
 
 };
