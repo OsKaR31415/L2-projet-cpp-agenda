@@ -29,6 +29,9 @@ class Heure {
             }
         }
 
+        /* Getter for mm (minutes) */
+        int get_mm() {return mm;}
+
         /* Setter for mm (minutes)
          * Args:
          *     int m : The minutes to set
@@ -69,6 +72,13 @@ class Heure {
             return std::to_string(hh) + ":" + std::to_string(mm);
         }
 };
+
+
+bool const operator== (Heure& h1, Heure& h2) {
+    return (h1.get_hh() == h2.get_hh()) and (h1.get_mm() == h2.get_mm());
+}
+
+
 
 /* int main() { */
 /*     /1* TESTS *1/ */
