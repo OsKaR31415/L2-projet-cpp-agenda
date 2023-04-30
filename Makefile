@@ -10,10 +10,10 @@ run:
 	./agenda.out
 
 heure:
-	g++ -c heure.cpp -o heure.out
+	g++ heure.h -o heure.out
 
 date:
-	g++ -c date.cpp -o date.out
+	g++ date.h -o date.out
 
 agenda:
 	g++ agenda.cpp -o agenda.out
