@@ -2,7 +2,7 @@
 all: clean compile run
 
 clean:
-	rm -f heure.out date.out agenda.out
+	rm -f heure.hpp.ghc date.hpp.ghc agenda.out
 
 compile: heure date agenda
 
@@ -10,10 +10,10 @@ run:
 	./agenda.out
 
 heure:
-	g++ heure.h -o heure.out
+	g++ heure.hpp
 
 date:
-	g++ date.h -o date.out
+	g++ date.hpp
 
 agenda:
 	g++ agenda.cpp -o agenda.out
