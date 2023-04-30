@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <map>
-#include "heure.h"
-#include "date.h"
+#include "heure.hpp"
+#include "date.hpp"
 
 class Agenda {
     private:
