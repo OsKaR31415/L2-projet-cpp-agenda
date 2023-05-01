@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#define Date_delimiter ((std::string) "/")
 
 class Date {
     private :
@@ -28,6 +29,8 @@ class Date {
 
         }
 
+        Date() { Date(25, 05, 2005); }
+
         ~Date() {}
 
         int get_day() {return day;}
@@ -53,7 +56,7 @@ class Date {
         }
 
         int set_year(int i_year) {
-            if(i_year < 2000) {return 0;}  // TODO : ajouter un moyen de bloquer sur les 2 années précédentes dans l'agenda.
+            if(i_year < 2000) {return 0;}
             else
             {
                 year = i_year;
@@ -62,7 +65,7 @@ class Date {
         }
 
         std::string to_string() const {
-            return std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year) + "\n";
+            return std::to_string(day) + Date_delimiter + std::to_string(month) + Date_delimiter + std::to_string(year);
         }
 
         // test if the current year is leap
@@ -133,6 +136,10 @@ class Date {
         }
 
 
+        /* serialize the object. Representation with the format dd/MM/yyyy */
+        std::string serialize() const { return to_string(); }
+
+
         bool operator== (const Date& other) const {
             return (day   == other.day   &&
                     month == other.month &&
@@ -167,6 +174,18 @@ class Date {
 
 };
 
+Date deserialize_Date(std::string repr) {
+    std::string left, mid, right;
+    left = repr.substr(0, repr.find(Date_delimiter));
+    repr.erase(0, repr.find(Date_delimiter) + Date_delimiter.length());
+    mid = repr.substr(0, repr.find(Date_delimiter));
+    repr.erase(0, repr.find(Date_delimiter) + Date_delimiter.length());
+    right = repr;
+    int day = std::stoi(left);
+    int month = std::stoi(mid);
+    int year = std::stoi(right);
+    return Date(day, month, year);
+}
 
 
 /* int main() { */

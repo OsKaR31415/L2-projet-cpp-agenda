@@ -1,14 +1,18 @@
 #include <iostream>
 #include <string>
+#define Heure_delimiter ((std::string) ":")
 
 class Heure {
     private:
         int hh;
         int mm;
+
     public:
         Heure(int h, int m) {
             set_hour(h, m);
         }
+
+        Heure() { Heure(3, 45); }
 
         ~Heure() {}
 
@@ -83,8 +87,13 @@ class Heure {
             if (hh < 10) {
                 hh_str = " " + hh_str;
             }
-            return hh_str + "h" + mm_str;
+            return hh_str + Heure_delimiter + mm_str;
         }
+
+        std::string serialize() const {
+            return std::to_string(hh) + Heure_delimiter + std::to_string(hh);
+        }
+
 
     bool operator== (const Heure& other) const {
         return (hh == other.hh) && (mm == other.mm);
@@ -105,6 +114,14 @@ class Heure {
 };
 
 
+Heure deserialize_Heure(std::string repr) {
+    std::string left, right;
+    left = repr.substr(0, repr.find(Heure_delimiter));
+    right = repr.substr(repr.find(Heure_delimiter)+Heure_delimiter.length(), repr.length());
+    int hh = std::stoi(left);
+    int mm = std::stoi(right);
+    return Heure(hh, mm);
+}
 
 
 

@@ -1,6 +1,6 @@
 COMPILER=g++
 
-all: clean compile run remove_header_binaries
+all: clean debug run remove_header_binaries
 
 clean: remove_header_binaries
 	rm -f agenda.out
@@ -8,17 +8,14 @@ clean: remove_header_binaries
 remove_header_binaries:
 	rm -f heure.hpp.ghc date.hpp.ghc
 
-compile: heure date agenda
+compile: interface
 
 run:
-	./agenda.out
+	./SCP
 
-heure:
-	$(COMPILER) heure.hpp
+interface:
+	$(COMPILER) interface.cpp -o SCP
 
-date:
-	$(COMPILER) date.hpp
-
-agenda:
-	$(COMPILER) agenda.cpp -o agenda.out
+debug:
+	$(COMPILER) interface.cpp -o SCP -gdwarf -g
 
