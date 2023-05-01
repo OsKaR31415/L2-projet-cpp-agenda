@@ -29,7 +29,6 @@ int input_action_num() {
     std::cout << "[enter action number] --> ";
     std::cin.clear();
     std::cin >> action;
-    std::cout << "\naction_num -> " << action << std::endl;
     return action;
 }
 
@@ -78,7 +77,7 @@ void modify_event(Agenda agenda, Date date, Heure heure) {
 
 }
 
-void do_action(Agenda agenda, int action) {
+void do_action(Agenda &agenda, int action) {
     std::string serial_event;
     Date date = Date();
     Heure heure = Heure();

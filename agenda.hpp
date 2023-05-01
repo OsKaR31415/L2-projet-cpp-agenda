@@ -43,9 +43,6 @@ class Agenda {
          *     string description: The description (contents) of the event. */
         void add_event(Date date, Heure hour, std::string description) {
             contenu[date][hour] = description;
-            std::cout << "adding : "<< date.to_string() << hour.to_string() << description << std::endl;
-            std::cout << "i have : "<< contenu[date][hour] << std::endl;
-            show(); // XXX
         }
 
 
@@ -85,12 +82,9 @@ class Agenda {
 
         void show() {
             int counter = 1;
-            int tortus_counter = 1; // XXX
             std::map<Date, std::map<Heure, std::string> >::iterator it;
             // for every day of the agenda
             for (it=contenu.begin(); it!=contenu.end(); ++it) {
-                std::cout << "counter : " << tortus_counter << std::endl;
-                tortus_counter++;
                 counter = show_day(it->first, counter); // show every event of the day
             }
         }
