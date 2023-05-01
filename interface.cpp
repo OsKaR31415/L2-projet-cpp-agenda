@@ -15,9 +15,9 @@ void actions_box() {
     std::cout << "\n\n"
         << "┏━━━━━━━━━━━━━━━━━━┓\n"
         << "┃ Choose action :  ┃\n"
-        << "| 1 - add event    ┃\n"
+        << "┃ 1 - add event    ┃\n"
         << "┃ 2 - remove event ┃\n"
-        << "| 3 - modify event ┃\n"
+        << "┃ 3 - modify event ┃\n"
         << "┃ 4 - show events  ┃\n"
         << "┃ 5 - save agenda  ┃\n"
         << "┃ 6 - load agenda  ┃\n"
@@ -37,9 +37,9 @@ void modify_event(Agenda agenda, Date date, Heure heure) {
     std::cout << "\n\n"
         << "┓━━━━━━━━━━━━━━━━━━┏\n"
         << "┃ Choose action :  ┃\n"
-        << "| 1 - change day   ┃\n"
+        << "┃ 1 - change day   ┃\n"
         << "┃ 2 - shift day    ┃\n"
-        << "| 3 - change time  ┃\n"
+        << "┃ 3 - change time  ┃\n"
         << "┗━━━━━━━━━━━━━━━━━━┛\n";
 
     int action = input_action_num();
