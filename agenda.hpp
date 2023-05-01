@@ -118,7 +118,9 @@ class Agenda {
             if ( !has_day(date) ) {
                 return 0;
             }
-            return contenu[date].erase(hour);
+            int status = contenu[date].erase(hour);
+            delete_day_if_empty(date);
+            return status;
         }
 
         /* 1 if the event is found, 0 if not */

@@ -7,10 +7,13 @@ Le projet à été testé avec `clang` version `14.0.0`, mais devrait fonctionne
 
 Il est possible de changer la commande utilisée pour appeler le compilateur avec la variable `COMPILER` dans le makefile.
 
+ - `make` pour compiler et exécuter
+ - `make run` pour exécuter sans recompiler
+ - `make clean` pour supprimer les fichiers qui ne sont pas du code source (même les exécutables)
 
 
 
-# Roadmap
+# a faire
 
 ## Obligatoire
 

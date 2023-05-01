@@ -1,21 +1,20 @@
 COMPILER=g++
 
-all: clean debug run remove_header_binaries
+all: clean compile run remove_header_binaries
 
 clean: remove_header_binaries
-	rm -f agenda.out
+	rm -f SCP
 
 remove_header_binaries:
-	rm -f heure.hpp.ghc date.hpp.ghc
+	rm -f *.gch *.out *.o
+
 
 compile: interface
 
-run:
-	./SCP
 
 interface:
 	$(COMPILER) interface.cpp -o SCP
 
-debug:
-	$(COMPILER) interface.cpp -o SCP -gdwarf -g
 
+run:
+	./SCP

@@ -33,7 +33,7 @@ int input_action_num() {
 }
 
 
-void modify_event(Agenda agenda, Date date, Heure heure) {
+void modify_event(Agenda &agenda, Date date, Heure heure) {
     std::cout << "\n\n"
         << "┓━━━━━━━━━━━━━━━━━━┏\n"
         << "┃ Choose action :  ┃\n"
@@ -77,10 +77,12 @@ void modify_event(Agenda agenda, Date date, Heure heure) {
 
 }
 
-void do_action(Agenda &agenda, int action) {
+bool do_action(Agenda &agenda, int action) {
+    int n;
     std::string serial_event;
     Date date = Date();
     Heure heure = Heure();
+    std::cin.clear();
     switch (action) {
 
         case (1):
@@ -98,7 +100,8 @@ void do_action(Agenda &agenda, int action) {
                 << "Please type in the event's date and time in the following format :\n"
                 << "dd/MM/yyyy hh:mm\n"
                 << "[remove event]> ";
-            std::cin >> serial_event;
+            std::getline(std::cin, serial_event);
+            std::getline(std::cin, serial_event);
             agenda.delete_serialized_event(serial_event);
             break;
 
@@ -107,33 +110,74 @@ void do_action(Agenda &agenda, int action) {
                 << "Please type int the date and time of the event you want to modify int the following format :\n"
                 << "dd/MM/yyyy hh:mm\n"
                 << "[modify event]> ";
-            std::cin >> serial_event;
+            std::getline(std::cin, serial_event);
+            std::getline(std::cin, serial_event);
             date = get_Date_from_serial_event(serial_event);
             heure = get_Heure_from_serial_event(serial_event);
             modify_event(agenda, date, heure);
             break;
 
         case (4):
-            agenda.show();
+            std::cout << "SHOWING EVENTS\n"
+                << " 1 - showing events for one day\n"
+                << " 2 - showing events for all days\n"
+                << "[enter action number]> ";
+            std::cin.clear();
+            std::cin >> n;
+            switch (n) {
+                case (1):
+                    std::cout << "EVENTS FOR ONE DAY\n"
+                        << "Please enter the day you want to see in the following format :\n"
+                        << "dd/MM/yyyy\n"
+                        << "[date to show]> ";
+                    std::getline(std::cin, serial_event);
+                    std::getline(std::cin, serial_event);
+                    date = get_Date_from_serial_event(serial_event);
+                    agenda.show_day(date);
+                    break;
+                case (2):
+                    agenda.show();
+                    break;
+            }
             break;
+
         case (5):
+            std::cout << "SAVING AGENDA INTO A FILE\n"
+                << "Please enter the file name\n"
+                << "[file name]> ";
+            std::cin >> serial_event;
+            save_to_file(agenda, serial_event);
             break;
+
         case (6):
+            std::cout << "LOADING AGENDA FROM A FILE\n"
+                << "Please enter the file name\n"
+                << "[file name]> ";
+            std::cin.clear();
+            std::cin >> serial_event;
+            agenda = recover_from_file(serial_event);
             break;
+        default:
+            // no valid action : quit the program
+            return false;
     }
+    return true; // for any valid action, continue the loop
 }
 
 int main() {
+    bool cont = true;
     Agenda agenda = Agenda();
 
     title();
 
-    actions_box();
-    do_action(agenda, input_action_num());
-    agenda.add_serialized_event("25/05/2005 13:45 anniv2");
-    agenda.show();
-    actions_box();
-    do_action(agenda, input_action_num());
+    while (cont) {
+        actions_box();
+        cont = do_action(agenda, input_action_num());
+    }
+
+    title();
+
+    std::cout << "Goodbye!" << std::endl;
 }
 
 
